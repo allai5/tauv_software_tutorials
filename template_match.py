@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 def template_matching(src, template):
 	frame = cv.cvtColor(src,cv.COLOR_BGR2GRAY)
-	img = src.copy()
+	img = frame.copy()
 	w, h = template.shape
 	method_str = 'cv.TM_CCOEFF_NORMED'
 	method = eval(method_str)
@@ -22,8 +22,8 @@ def template_matching(src, template):
 cap = cv.VideoCapture('test480.mp4')
 template = cv.imread('red.jpg')
 template = cv.cvtColor(template,cv.COLOR_BGR2GRAY)
-
 while(True):
+
 	ret, frame = cap.read() #ret returns whether or not read was successful
 	#frame = cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
 	#cv.imshow('frame', frame)
